@@ -7,11 +7,13 @@
 	[REQUEST_TRACE_IDENTIFIER] [varchar](128) NULL,
 	[REQUEST_QUERY_STRING] [nvarchar](max) NULL,
 	[REQUEST_BODY] [nvarchar](max) NULL,
-	[USER_ID] [numeric](18, 0) NULL,
+	[USER_ID] [bigint] NULL,
 	[USER_CLAIMS] [nvarchar](max) NULL,
-	[TARGET_ID] [numeric](18, 0) NULL,
-	[TARGET_OPERATION_TYPE_ID] [numeric](18, 0) NULL,
-	[TIMESTAMPE] [time](7) NULL,
+	[CASES_ID] [bigint] NULL,
+	[CASE_NO] [nvarchar](50) NULL,
+	[QUERY_TARGET_ID] [bigint] NULL,
+	[QUERY_CATEGORY_ID] [bigint] NULL,
+	[TIMESTAMPE] [date] NOT NULL,
  CONSTRAINT [PK_REQUEST_LOG] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -24,3 +26,4 @@ GO
 
 ALTER TABLE [dbo].[REQUEST_LOG] ADD  CONSTRAINT [DF_REQUEST_LOG_TIMESTAMPE]  DEFAULT (getdate()) FOR [TIMESTAMPE]
 GO
+
